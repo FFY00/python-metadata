@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import os
 import pathlib
 import sys
 
-from typing import Any, ClassVar, Dict, List, Optional, Tuple
+from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 
 import build.util
 import tomli
@@ -44,7 +45,7 @@ class Metadata:
     _FIELDS: ClassVar[List[str]] = list(_FIELD_MAP.keys()) + [
     ]
 
-    def __init__(self, project_path: str) -> None:
+    def __init__(self, project_path: Union[str, os.PathLike[str]]) -> None:
         self._path = pathlib.Path(project_path)
 
         pyproject = self._path.joinpath('pyproject.toml')
