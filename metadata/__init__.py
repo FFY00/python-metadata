@@ -74,6 +74,8 @@ class Metadata:
     def _get_pep621_field(self, name) -> Any:
         if name == 'version':
             return str(self._pep621_metadata.version)
+        elif name == 'requires-python':
+            return str(self._pep621_metadata.requires_python)
         elif name == 'readme':
             return self._pep621_metadata.readme.text
         elif name == 'license':
