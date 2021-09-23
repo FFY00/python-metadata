@@ -80,7 +80,7 @@ class Metadata:
         elif name == 'readme':
             return self._pep621_metadata.readme.text
         elif name == 'license':
-            return self._pep621_metadata.readme.text
+            return self._pep621_metadata.license.text
         elif name in self._FIELD_MAP:
             return getattr(self._pep621_metadata, name)
         raise AttributeError(f'Project does not have `{name}` metadata field (PEP 621)')
