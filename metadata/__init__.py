@@ -59,6 +59,7 @@ class Metadata:
         return list(super().__dir__()) + self._FIELDS
 
     def __getattr__(self, name: str) -> Any:
+        name = name.replace('_', '-')
         if self._has_pep621 and name not in self._pep621_metadata.dynamic:
             return self._get_pep621_field(name)
         return self._get_core_metadata_field(name)
