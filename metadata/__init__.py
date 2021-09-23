@@ -9,8 +9,8 @@ import sys
 from typing import Any, ClassVar, Dict, List, Optional, Tuple, Union
 
 import build.util
-import tomli
 import pep621
+import tomli
 
 
 if sys.version_info >= (3, 8):
