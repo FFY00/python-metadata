@@ -72,7 +72,7 @@ class Metadata:
     def _core_metadata(self) -> importlib_metadata.PackageMetadata:
         return build.util.project_wheel_metadata(self._path)
 
-    def _get_pep621_field(self, name) -> Any:
+    def _get_pep621_field(self, name: str) -> Any:
         if name == 'version':
             return str(self._pep621_metadata.version)
         elif name == 'requires-python':
@@ -85,7 +85,7 @@ class Metadata:
             return getattr(self._pep621_metadata, name)
         raise AttributeError(f'Project does not have `{name}` metadata field (PEP 621)')
 
-    def _get_people_core_metadata(self, name) -> List[Tuple[str, Optional[str]]]:
+    def _get_people_core_metadata(self, name: str) -> List[Tuple[str, Optional[str]]]:
         fields: List[Tuple[str, Optional[str]]] = []
         for entry in self._core_metadata[name]:
             fields.append((entry, None))
@@ -93,7 +93,7 @@ class Metadata:
             fields.append(('Unknown', entry))
         return fields
 
-    def _get_core_metadata_field(self, name) -> Any:
+    def _get_core_metadata_field(self, name: str) -> Any:
         if name == 'authors':
             return self._get_people_core_metadata('Author')
         elif name == 'maintainers':
