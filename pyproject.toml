@@ -5,7 +5,7 @@ requires = ['trampolim']
 [project]
 name = 'metadata'
 version = '0.0.0'
-description = 'Python package to fetch the metadata of Python packages'
+description = 'Python package to extract the metadata from Python packages'
 readme = 'README.md'
 requires-python = '>=3.7'
 license = { file = 'LICENSE' }
